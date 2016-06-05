@@ -134,8 +134,7 @@ dumb a. 哑的;愚蠢的
 dump vt. 倾卸,倾倒
 durable a. 耐用的,持久的
 duration n. 持续,持续期间
-elaborate a.
-精心设计的,复杂的
+elaborate a. 精心设计的,复杂的
 emotion n. 情感,感情
 emphasize vt. 强调,着重
 enclose vt. 围住;把...装入信封
@@ -233,8 +232,7 @@ inhabitant n. 居民
 insignificant a. 无意义的,无足轻重的;无价值的
 insurance n. 保险,保险费
 insure vt. 给...保险,保证,确保
-integrate v. (into,
-with) (使)成为一体,(使)合并使结合成为整体
+integrate v. (into, with) (使)成为一体,(使)合并使结合成为整体
 interfere v. 干涉,干扰,妨碍
 internal a. 内部的,国内的
 interpret v. 翻译,解释
@@ -288,8 +286,7 @@ notify vt. 通知,告知
 notion n. 概念;意图,想法
 nuisance n. 损害,妨害,讨厌(的人或事物)
 oblige v. 迫使,责成;使感激
-obscure a. 阴暗,模糊不出名的;
-不重要的 vt.使...模糊不清; 掩盖
+obscure a. 阴暗,模糊不出名的; 不重要的 vt.使...模糊不清; 掩盖
 obstacle n. 障碍(物),妨碍
 odd a. 奇特的,古怪的;奇数的
 offend v. 冒犯,触犯
