@@ -11,6 +11,10 @@ const wordInfo = wordList.map(v=>{
 const REMEMBERD = 3
 const NORMAL = 2
 
+// 显示所有单词/未记住的单词
+const SHOW_ALL_WORD = false
+const SHOW_ALL_WORD_ZH = false
+
 export default React.createClass({
 	getInitialState(){
 		let state = {m:{}}
@@ -35,12 +39,19 @@ export default React.createClass({
 		const words = wordInfo.map((v, i)=>{
 			let lineClass = 'line '
 			if(m[v.en] === REMEMBERD) {
+				if(SHOW_ALL_WORD === false){
+					return null
+				}
 				lineClass = 'line remember'
+			}
+			let zhStyle={}
+			if(SHOW_ALL_WORD_ZH){
+				zhStyle = {color:'#000'}
 			}
 			return (
 				<div className={lineClass} key={i}>
 					<div className='en'>{v.en}</div>
-					<div className='zh'>{v.zh}</div>
+					<div className='zh' style={zhStyle}>{v.zh}</div>
 					<div className='zhan' onClick={()=>this.onClick(v.en, REMEMBERD)}>斩</div>
 					<div className='zhan' onClick={()=>this.onClick(v.en, NORMAL)}>撤销</div>
 				</div>
@@ -81,3 +92,17 @@ export default React.createClass({
 
 // window.storageGet = storageGet
 // window.storagePush = storagePush
+
+
+function exportData(){
+	return _.keys(JSON.parse(localStorage.word_1).m).join('\n')
+}
+window.exportData = exportData
+
+
+function exportText(){
+	return (_.map(document.querySelectorAll('.line'),v=>{
+		return v.childNodes[0].innerText+'  '+v.childNodes[1].innerText.replace(/[\w\.\s]*/g, '')
+	}).join('\n'))
+}
+window.exportText = exportText
