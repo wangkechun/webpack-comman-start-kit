@@ -3,7 +3,9 @@ window.d = window.debug = console.log.bind(console)
 
 const wordList = word.trim().split('\n')
 
-const wordInfo = wordList.map(v=>{
+
+
+const wordInfo = _.shuffle(wordList).map(v=>{
 	const i = v.indexOf(' ')
 	return {en:v.slice(0, i), zh:v.slice(i+1)}
 })
