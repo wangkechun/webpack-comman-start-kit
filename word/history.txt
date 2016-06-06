@@ -70,3 +70,12 @@ shift
 scale
 region
 prompt
+absolute
+agency
+academic
+adopt
+comment
+community
+constant
+data
+accomplish

@@ -22,12 +22,17 @@ export default React.createClass({
 		if(j){
 			state = JSON.parse(j)
 		}
-		return Object.assign(state, {showZh:true})
+		return Object.assign(state, {showZh:true, wordNow: ''})
 	},
 	onClick(en, value){
 		const state = {m:Object.assign({}, this.state.m, {[en]:value})}
 		this.setState(state)
 		this.sync(state)
+	},
+	onChoose(en){
+		this.setState({
+			wordNow:en
+		})
 	},
 	sync(state){
 		const s = state || this.state
@@ -49,7 +54,7 @@ export default React.createClass({
 				zhStyle = {color:'#000'}
 			}
 			return (
-				<div className={lineClass} key={i}>
+				<div className={lineClass} key={i} onClick={()=>this.onChoose(v.en)}>
 					<div className='en'>{v.en}</div>
 					<div className='zh' style={zhStyle}>{v.zh}</div>
 					<div className='zhan' onClick={()=>this.onClick(v.en, REMEMBERD)}>斩</div>
@@ -58,9 +63,10 @@ export default React.createClass({
 			)
 		})
 		return (
-			<div>
+			<div className="container">
 				<div className='words'>{words}</div>
-				<div className='switch'>
+				<div className='dict'>
+					<iframe src={"http://dict.youdao.com/w/"+this.state.wordNow}></iframe>
 				</div>
 			</div>
 		)
@@ -101,8 +107,14 @@ window.exportData = exportData
 
 
 function exportText(){
-	return (_.map(document.querySelectorAll('.line'),v=>{
-		return v.childNodes[0].innerText+'  '+v.childNodes[1].innerText.replace(/[\w\.\s]*/g, '')
-	}).join('\n'))
+	const r = []
+	_.map(document.querySelectorAll('.line'),v=>{
+		const line = v.childNodes[0].innerText+'  '+v.childNodes[1].innerText.replace(/[\w\.\s]*/g, '')
+		r.push(line)	
+		r.push(line)	
+		r.push(line)	
+		r.push(line)	
+	})
+	return r.join('\n')
 }
 window.exportText = exportText
