@@ -1,7 +1,7 @@
 import word from './word'
 window.d = window.debug = console.log.bind(console)
 
-const wordList = word.trim().split('\n')
+const wordList = word.trim().split('\n').slice(0, 100)
 
 
 
@@ -43,6 +43,7 @@ export default React.createClass({
 	},
 	render(){
 		const m = this.state.m
+		const wordNow = this.state.wordNow
 		const words = wordInfo.map((v, i)=>{
 			let lineClass = 'line '
 			if(m[v.en] === REMEMBERD) {
@@ -50,6 +51,9 @@ export default React.createClass({
 					return null
 				}
 				lineClass = 'line remember'
+			}
+			if(v.en === wordNow){
+				lineClass += ' now'
 			}
 			let zhStyle={}
 			if(SHOW_ALL_WORD_ZH){
