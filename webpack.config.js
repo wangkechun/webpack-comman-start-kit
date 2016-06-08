@@ -28,7 +28,7 @@ var filename = null
 
 
 if (DEBUG) {
-  devtool = 'eval'
+  devtool = 'eval-source-map'
   loaders = ['react-hot'].concat(loaders)
   plugins = plugins.concat([
     new webpack.HotModuleReplacementPlugin()
