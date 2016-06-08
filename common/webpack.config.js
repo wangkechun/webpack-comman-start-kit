@@ -35,7 +35,7 @@ if(DEVELOPMENT){
   }
 } else {
   output = {
-    filename: '[name].build.js',
+    filename: '[name].min.js',
     publicPath: '/',
     path: __dirname + '/',
   }

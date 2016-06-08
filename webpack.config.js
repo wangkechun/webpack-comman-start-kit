@@ -21,8 +21,11 @@ var plugins = [
   })
 ]
 var entry = {
-  'word/app.js': './word/index.jsx',
+  'word/app': './word/index.jsx',
 }
+
+var filename = null
+
 
 if (DEBUG) {
   devtool = 'eval'
@@ -38,6 +41,7 @@ if (DEBUG) {
     ]
     return result
   }, {})
+  filename = '[name].debug.js'
 } else {
   devtool = 'source-map'
   plugins = plugins.concat([
@@ -45,6 +49,7 @@ if (DEBUG) {
     new webpack.optimize.DedupePlugin(),
     new webpack.optimize.UglifyJsPlugin(),
   ])
+  filename = '[name].min.js'
 }
 
 var COMMON_MODULES = require('./common/common.js')
@@ -53,7 +58,7 @@ var config = {
   devtool: devtool,
   entry: entry,
   output: {
-    filename: '[name]',
+    filename: filename,
     publicPath: '/',
     path: __dirname + '/',
   },
