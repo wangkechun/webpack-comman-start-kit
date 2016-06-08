@@ -67,12 +67,12 @@ var config = {
       loaders: ['style', 'css?-url', 'less']
     }],
     noParse: [
-      path.join(__dirname, 'node_modules', 'babel-core', 'browser.min.js')
+      path.join(__dirname, 'node_modules', 'babel-core', 'browser.min.js'),
     ],
   },
   resolve: {
     extensions: ['', '.js', '.jsx'],
-    alias: {}
+    alias: {}, 
   },
   plugins: plugins,
   externals:[
@@ -80,12 +80,12 @@ var config = {
       if(COMMON_MODULES.hasOwnProperty(request)){
         callback(null, `COMMON_MODULES.require("${request}")`)
       }else{
-        console.log('module not in COMMON_MODULES:' + request)
+        // console.log(`module not in COMMON_MODULES: ${request} ${context}`)
         callback()
       }
     }
   ]
 }
 
-console.log(JSON.stringify(config, null, '  '))
+// console.log(JSON.stringify(config, null, '  '))
 module.exports = config
