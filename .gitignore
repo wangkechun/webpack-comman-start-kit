@@ -6,3 +6,4 @@ build
 word/app.min.js
 word/app.min.js.map
 common.min.js
+*.log

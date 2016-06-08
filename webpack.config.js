@@ -21,7 +21,7 @@ var plugins = [
   })
 ]
 var entry = {
-  'word/app': './word/index.jsx',
+  'hello/app': './hello/index.jsx',
 }
 
 var filename = null
