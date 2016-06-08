@@ -1,7 +1,9 @@
 import word from './word'
+import React from 'react'
+import _ from 'lodash'
 window.d = window.debug = console.log.bind(console)
 
-const wordList = word.trim().split('\n').slice(0, 100)
+const wordList = word.trim().split('\n').slice(0, 50)
 
 
 
@@ -115,11 +117,16 @@ window.exportData = exportData
 function exportText(){
 	const r = []
 	_.map(document.querySelectorAll('.line'),v=>{
-		const line = v.childNodes[0].innerText+'  '+v.childNodes[1].innerText.replace(/[\w\.\s]*/g, '')
-		r.push(line)	
-		r.push(line)	
-		r.push(line)	
-		r.push(line)	
+		const en = v.childNodes[0].innerText
+		const zh = v.childNodes[1].innerText.replace(/[\w\.\s]*/g, '')
+		r.push(en)	
+		r.push(en)	
+		r.push(en)	
+		r.push(zh)	
+		r.push(en)	
+		r.push(en)	
+		r.push(en)	
+		r.push(en)	
 	})
 	return r.join('\n')
 }

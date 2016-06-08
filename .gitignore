@@ -1,2 +1,4 @@
 node_modules
 page-redux
+common/common.build.js
+common/common.debug.js

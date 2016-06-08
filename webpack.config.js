@@ -7,7 +7,6 @@ if (process.env.NODE_ENV != 'production' && process.env.NODE_ENV != 'development
 }
 
 var DEBUG = process.env.NODE_ENV === 'development' ? true : false
-var HOT_RELOAD = process.env.HOT_RELOAD === 'true' ? true : false
 
 var webpack = require('webpack')
 var path = require('path')
@@ -21,29 +20,17 @@ var plugins = [
     'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV)
   })
 ]
-
-if (HOT_RELOAD) {
-  var entry = {
-    'word/app.js': './word/index.jsx',
-  }
-} else {
-  var entry = {
-    'word/vendor.js': './word/global',
-    'word/app.js': './word/index.jsx',
-  }
+var entry = {
+  'word/app.js': './word/index.jsx',
 }
 
 if (DEBUG) {
-  devtool = 'eval-source-map'
+  devtool = 'eval'
   loaders = ['react-hot'].concat(loaders)
   plugins = plugins.concat([
     new webpack.HotModuleReplacementPlugin()
   ])
   entry = Object.keys(entry).reduce(function (result, key) {
-    if (!HOT_RELOAD) {
-      result[key] = entry[key]
-      return result
-    }
     result[key] = [
       'webpack-dev-server/client?http://0.0.0.0:' + port,
       'webpack/hot/only-dev-server',
@@ -59,6 +46,9 @@ if (DEBUG) {
     new webpack.optimize.UglifyJsPlugin(),
   ])
 }
+
+var COMMON_MODULES = require('./common/common.js')
+
 var config = {
   devtool: devtool,
   entry: entry,
@@ -85,7 +75,17 @@ var config = {
     alias: {}
   },
   plugins: plugins,
+  externals:[
+    function(context, request, callback){
+      if(COMMON_MODULES.hasOwnProperty(request)){
+        callback(null, `COMMON_MODULES.require("${request}")`)
+      }else{
+        console.log('module not in COMMON_MODULES:' + request)
+        callback()
+      }
+    }
+  ]
 }
 
-
+console.log(JSON.stringify(config, null, '  '))
 module.exports = config

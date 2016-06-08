@@ -1,0 +1,64 @@
+'use strict'
+
+process.env.NODE_ENV = process.env.NODE_ENV || 'production'
+
+if (process.env.NODE_ENV != 'production' && process.env.NODE_ENV != 'development') {
+  throw (new Error('Error process.env.NODE_ENV'))
+}
+
+let DEVELOPMENT = process.env.NODE_ENV === 'development'
+
+var webpack = require('webpack')
+var path = require('path')
+
+var loaders = ['babel']
+var port = process.env.PORT || 3000
+
+var plugins = [
+  new webpack.DefinePlugin({
+    'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV)
+  })
+]
+
+
+var entry = {
+  './common': './common',
+}
+
+var output
+
+if(DEVELOPMENT){
+  output = {
+    filename: '[name].debug.js',
+    publicPath: '/',
+    path: __dirname + '/',
+  }
+} else {
+  output = {
+    filename: '[name].build.js',
+    publicPath: '/',
+    path: __dirname + '/',
+  }
+  plugins = plugins.concat([
+    new webpack.optimize.OccurenceOrderPlugin(),
+    new webpack.optimize.DedupePlugin(),
+    new webpack.optimize.UglifyJsPlugin(),
+  ])
+}
+
+var config = {
+  entry: entry,
+  output: output,
+  module: {
+    loaders: [],
+    noParse: [],
+  },
+  resolve: {
+    extensions: ['', '.js', '.jsx'],
+    alias: {}
+  },
+  plugins: plugins,
+}
+
+
+module.exports = config

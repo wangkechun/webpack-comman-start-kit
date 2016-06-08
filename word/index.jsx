@@ -1,8 +1,9 @@
 import Root from './root'
-require('./index.less')
+import './index.less'
+import React from 'react'
+import ReactDOM from 'react-dom'
+
 console.log('[APP] app start ' + process.env.NODE_ENV)
-
-
 var rootInstance = null
 
 rootInstance = ReactDOM.render(<Root/>, document.getElementById('root'))
