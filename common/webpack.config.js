@@ -26,14 +26,17 @@ var entry = {
 }
 
 var output
+var devtool
 
 if(DEVELOPMENT){
+  devtool = 'source-map'
   output = {
     filename: '[name].debug.js',
     publicPath: '/',
     path: __dirname + '/',
   }
 } else {
+  devtool = 'source-map'
   output = {
     filename: '[name].min.js',
     publicPath: '/',
@@ -42,11 +45,14 @@ if(DEVELOPMENT){
   plugins = plugins.concat([
     new webpack.optimize.OccurenceOrderPlugin(),
     new webpack.optimize.DedupePlugin(),
-    new webpack.optimize.UglifyJsPlugin(),
+    new webpack.optimize.UglifyJsPlugin({
+      compress:{warnings:false}
+    }),
   ])
 }
 
 var config = {
+  devtool: devtool,
   entry: entry,
   output: output,
   module: {

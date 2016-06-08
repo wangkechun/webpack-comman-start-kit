@@ -1,9 +1,8 @@
 node_modules
 page-redux
-common/common.build.js
-common/common.debug.js
 build
-word/app.min.js
-word/app.min.js.map
-common.min.js
 *.log
+*.min.js
+*.debug.js
+*.map
+

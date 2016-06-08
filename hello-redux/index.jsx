@@ -7,6 +7,7 @@ import Root from './components/Root'
 import RootCss from './components/Root.less'
 
 console.log('[APP] app start ' + process.env.NODE_ENV)
+console.time && console.timeEnd('[APP] app load time')
 var rootInstance = null
 
 import configureStore from './store/configureStore'

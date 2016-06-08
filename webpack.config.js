@@ -47,7 +47,9 @@ if (DEBUG) {
   plugins = plugins.concat([
     new webpack.optimize.OccurenceOrderPlugin(),
     new webpack.optimize.DedupePlugin(),
-    new webpack.optimize.UglifyJsPlugin(),
+    new webpack.optimize.UglifyJsPlugin({
+      compress:{warnings:false}
+    }),
   ])
   filename = '[name].min.js'
 }

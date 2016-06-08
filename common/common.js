@@ -1,6 +1,6 @@
 'use strict'
 console.log('[APP] load vendor.js ' + process.env.NODE_ENV)
-
+console.time && console.time('[APP] app load time')
 var COMMON_MODULES = {}
 
 if(typeof window === 'object'){
@@ -16,11 +16,8 @@ COMMON_MODULES['react-dom'] = require('react-dom')
 COMMON_MODULES['redux'] = require('redux')
 COMMON_MODULES['react-router'] = require('react-router')
 COMMON_MODULES['react-router-redux'] = require('react-router-redux')
-COMMON_MODULES['lodash'] = require('lodash')
+COMMON_MODULES['lodash'] = require('lodash/core')
 COMMON_MODULES['tcomb-react'] = require('tcomb-react')
-COMMON_MODULES['react-motion'] = require('react-motion')
-COMMON_MODULES['wilddog'] = require('wilddog')
-COMMON_MODULES['wildreact'] = require('wildreact')
 
 if(process.env.NODE_ENV === 'development'){
 	COMMON_MODULES['url'] = require('url')
