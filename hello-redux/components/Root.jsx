@@ -7,10 +7,11 @@ import {
 
 const Root = React.createClass({
 	render(){
+		const p = this.props
 		return (
 			<div>
-				<h1>{this.props.cnt}</h1>
-				<button onClick={()=>this.props.add()} >add</button>
+				<h1>{p.cnt}</h1>
+				<button onClick={()=>p.add()} >add</button>
 			</div>
 		)
 	}

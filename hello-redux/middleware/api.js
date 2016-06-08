@@ -11,13 +11,13 @@ const send = async(url, method = 'GET', body = null) => {
       'Content-Type': 'application/json'
     },
     body: body ? JSON.stringify(body) : null
-  });
-  return await res.json();
+  })
+  return await res.json()
 }
 
 
 export default store => next => action => {
-  const callAPI = action[CALL_API];
+  const callAPI = action[CALL_API]
   if (!_.isObject(callAPI)) {
     return next(action)
   }
@@ -31,9 +31,9 @@ export default store => next => action => {
   const suffix = '_CALL'
   const Type = t.refinement(t.String, (s) => {
     return s.slice(-suffix.length) === suffix
-  }, 'Type');
-  Type(type);
-  const prefix = type.slice(0, -suffix.length);
+  }, 'Type')
+  Type(type)
+  const prefix = type.slice(0, -suffix.length)
 
   function actionWith(data) {
     const r = Object.assign({}, action, data)
