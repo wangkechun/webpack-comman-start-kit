@@ -33,7 +33,9 @@ export const Root = (props)=>{
 
 Root.propTypes = propTypes({
 	cnt:t.Number,
-	add:t.Func
+	add:t.Func,
+	store:t.Any,
+	history:t.Any,
 })
 
 export default connect((state, ownProps) => {

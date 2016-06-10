@@ -1,0 +1,10 @@
+.container
+	.words
+		each word in words
+			div(key=$index, class=word.lineClass, onClick=word.onClick)
+				.en= word.en
+				.zh(style=word.zhStyle)= word.zh
+				.zhan 斩
+				.zhan 撤销
+	.dict
+		iframe(src="http://dict.youdao.com/w/"+wordNow)

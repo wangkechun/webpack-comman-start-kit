@@ -1,13 +1,16 @@
 import word from './word'
 import React from 'react'
 import _ from 'lodash'
+import shuffle from 'lodash/shuffle'
+import Jade from './root.jade'
+
 window.d = window.debug = console.log.bind(console)
 
 const wordList = word.trim().split('\n').slice(0, 50)
 
 
 
-const wordInfo = _.shuffle(wordList).map(v=>{
+const wordInfo = shuffle(wordList).map(v=>{
 	const i = v.indexOf(' ')
 	return {en:v.slice(0, i), zh:v.slice(i+1)}
 })
@@ -61,51 +64,13 @@ export default React.createClass({
 			if(SHOW_ALL_WORD_ZH){
 				zhStyle = {color:'#000'}
 			}
-			return (
-				<div className={lineClass} key={i} onClick={()=>this.onChoose(v.en)}>
-					<div className='en'>{v.en}</div>
-					<div className='zh' style={zhStyle}>{v.zh}</div>
-					<div className='zhan' onClick={()=>this.onClick(v.en, REMEMBERD)}>斩</div>
-					<div className='zhan' onClick={()=>this.onClick(v.en, NORMAL)}>撤销</div>
-				</div>
-			)
-		})
-		return (
-			<div className="container">
-				<div className='words'>{words}</div>
-				<div className='dict'>
-					<iframe src={"http://dict.youdao.com/w/"+this.state.wordNow}></iframe>
-				</div>
-			</div>
-		)
+			const onClick = ()=>this.onChoose(v.en)
+			return {en:v.en, zh:v.zh, zhStyle, lineClass, onClick}
+		}).filter(v=>v)
+		// d('words', words)
+		return Jade({words, wordNow:this.state.wordNow})
 	}
 })
-
-
-// const key = 'word_1'
-
-// function storageGet(){
-// 	const r = localStorage[key]
-// 	if(r && r.length){
-// 		return JSON.parse(r)
-// 	}else{
-// 		localStorage[key] = '{}'
-// 		return {}
-// 	}
-// }
-
-
-// function storagePush(v){
-// 	const r = localStorage[key]
-// 	console.assert(r)
-// 	const d = JSON.parse(r)
-// 	d.push(v)
-// 	localStorage[key] = JSON.stringify(d)
-// }
-
-
-// window.storageGet = storageGet
-// window.storagePush = storagePush
 
 
 function exportData(){

@@ -17,6 +17,8 @@ COMMON_MODULES['redux'] = require('redux')
 COMMON_MODULES['react-router'] = require('react-router')
 COMMON_MODULES['react-router-redux'] = require('react-router-redux')
 COMMON_MODULES['lodash'] = require('lodash/core')
+COMMON_MODULES['lodash/shuffle'] = require('lodash/shuffle')
+
 COMMON_MODULES['tcomb-react'] = require('tcomb-react')
 
 if(process.env.NODE_ENV === 'development'){
