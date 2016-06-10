@@ -72,6 +72,9 @@ var config = {
     }, {
       test: /\.less$/,
       loaders: ['style', 'css?-url', 'less']
+    }, {
+      test: /\.jade$/,
+      loaders: ['react-jade']
     }],
     noParse: [
       path.join(__dirname, 'node_modules', 'babel-core', 'browser.min.js'),

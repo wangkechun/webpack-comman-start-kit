@@ -1,0 +1,12 @@
+div
+	h1= cnt*2
+	button(onClick=add2) good
+	each item in list
+		li(key=$index, onClick=click.bind(null, $index))= item
+	If(if=show)
+		h1 hello
+	If(if=!show)
+		h1 world
+	IfElse(if=show)
+		h1 good
+		h1 andss

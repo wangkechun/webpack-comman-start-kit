@@ -6,7 +6,7 @@ import * as ActionTypes from '../actions'
 
 const routing = routerReducer
 
-const cnt = (state = 0, action) => {
+export const cnt = (state = 0, action) => {
   if(action.type === ActionTypes.CNT_ADD){
     return state+1
   }
