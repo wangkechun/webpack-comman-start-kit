@@ -55,7 +55,12 @@
             "es2015",
             "stage-1",
             "react"
-        ]
+        ],
+        "env": {
+            "development": {
+                "sourceMaps": "inline"
+            }
+        }
     },
     "ava": {
         "babel": "inherit",
