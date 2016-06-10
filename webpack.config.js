@@ -22,7 +22,8 @@ var plugins = [
 ]
 var entry = {
   // 'hello-redux/app': './hello-redux/index.jsx',
-  'word/app': './word/index.jsx',
+  // 'word/app': './word/index.jsx',
+  'matrix/app': './matrix/index.jsx',
 }
 
 var filename = null
