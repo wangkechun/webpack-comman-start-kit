@@ -19,7 +19,6 @@
         "lodash": "^4.11.2",
         "react": "^15.1.0",
         "react-addons-test-utils": "^15.0.1",
-        "react-codemirror": ">=0.1.2",
         "react-dom": ">=15.0.1",
         "react-hot-loader": "^1.2.8",
         "react-jade": "^2.5.0",
@@ -39,9 +38,9 @@
         "wolfy87-eventemitter": "^4.3.0"
     },
     "scripts": {
-        "start": "node server.js",
-        "release": "NODE_ENV=production webpack",
-        "build": "NODE_ENV=development webpack",
+        "start": "node ./tools/server.js",
+        "release": "NODE_ENV=production webpack --config ./tools/webpack.config.js",
+        "build": "NODE_ENV=development webpack --config ./tools/webpack.config.js",
         "clear": "",
         "build-common": "cd common && NODE_ENV=development webpack --config ./webpack.config.js",
         "release-common": "cd common && NODE_ENV=production webpack --config ./webpack.config.js",

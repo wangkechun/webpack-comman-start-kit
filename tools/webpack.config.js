@@ -56,7 +56,7 @@ if (DEBUG) {
   filename = '[name].min.js'
 }
 
-var COMMON_MODULES = require('./common/common.js')
+var COMMON_MODULES = require('../common/common.js')
 
 var config = {
   devtool: devtool,
@@ -64,7 +64,7 @@ var config = {
   output: {
     filename: filename,
     publicPath: '/',
-    path: __dirname + '/',
+    path: __dirname + '/../',
   },
   module: {
     loaders: [{
@@ -79,7 +79,7 @@ var config = {
       loaders: ['react-jade']
     }],
     noParse: [
-      path.join(__dirname, 'node_modules', 'babel-core', 'browser.min.js'),
+      path.join(__dirname, '..', 'node_modules', 'babel-core', 'browser.min.js'),
     ],
   },
   resolve: {

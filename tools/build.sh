@@ -1,3 +1,7 @@
+DIR=$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )
+cd $DIR
+cd ..
+
 WORD_DIR=`pwd`
 
 function clean(){
@@ -19,7 +23,4 @@ npm run release
 
 #copy
 cp common/common.min.js build/
-cp word/app.min.js build/
-cp word/index.release.html build/
-
 
