@@ -1,5 +1,5 @@
 div
-	h1= cnt*2
+	h1= cnt
 	button(onClick=add2) good
 	each item in list
 		li(key=$index, onClick=click.bind(null, $index))= item

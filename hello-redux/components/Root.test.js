@@ -1,6 +1,9 @@
 import test from 'ava'
 import {If, IfElse, Root} from './Root'
 import React from 'react'
+import TestUtils from 'react/lib/ReactTestUtils'
+import {render} from 'enzyme';
+
 var ReactDOMServer = require('react-dom/server');
 
 
@@ -40,9 +43,15 @@ test('Root', t=>{
 			add={()=>1}
 		/>
 	)
-	const h1 = ReactDOMServer.renderToString(r1)
+	const h2 = render(r1)
+	t.true(h2.find('h1').eq(0).text()==='11999')
 })
 
 
-
+test('test react', t=>{
+	const r1 = <div className="b"><div className="a">aa</div> </div>
+	const app = render(r1)
+	const text = app.find('.a').text()
+	t.true(text==='aa')
+})
 

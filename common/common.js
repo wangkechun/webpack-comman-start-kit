@@ -12,6 +12,7 @@ COMMON_MODULES['babel-polyfill'] = require('babel-polyfill')
 COMMON_MODULES['isomorphic-fetch'] = require('isomorphic-fetch')
 COMMON_MODULES['react'] = require('react')
 COMMON_MODULES['react/lib/ReactMount'] = require('react/lib/ReactMount')
+COMMON_MODULES['react/lib/ReactTestUtils'] = require('react/lib/ReactTestUtils')
 COMMON_MODULES['react-dom'] = require('react-dom')
 COMMON_MODULES['redux'] = require('redux')
 COMMON_MODULES['react-router'] = require('react-router')
@@ -36,4 +37,3 @@ COMMON_MODULES.require = function(module){
 }
 
 module.exports = COMMON_MODULES
-
