@@ -45,7 +45,8 @@
         "clear": "",
         "build-common": "cd common && NODE_ENV=development webpack --config ./webpack.config.js",
         "release-common": "cd common && NODE_ENV=production webpack --config ./webpack.config.js",
-        "test": "ava"
+        "test": "ava",
+        "testwatch": "ava --watch"
     },
     "babel": {
         "plugins": [
