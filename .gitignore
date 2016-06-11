@@ -6,3 +6,4 @@ build
 *.debug.js
 *.map
 
+.idea
