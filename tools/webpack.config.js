@@ -68,7 +68,11 @@ var config = {
   },
   module: {
     loaders: [{
-      test: /\.jsx?$/,
+      test: /\.js$/,
+      exclude: /build|lib|bower_components|node_modules/,
+      loaders: loaders
+    }, {
+      test: /\.jsx$/,
       exclude: /build|lib|bower_components|node_modules/,
       loaders: loaders
     }, {
