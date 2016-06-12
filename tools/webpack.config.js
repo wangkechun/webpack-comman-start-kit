@@ -92,12 +92,12 @@ var config = {
       if(COMMON_MODULES.hasOwnProperty(request)){
         callback(null, `COMMON_MODULES.require("${request}")`)
       }else{
-        // console.log(`module not in COMMON_MODULES: ${request} ${context}`)
+        console.log(`module not in COMMON_MODULES: ${request} ${context}`)
         callback()
       }
     }
   ]
 }
 
-// console.log(JSON.stringify(config, null, '  '))
+console.log(JSON.stringify(config, null, '  '))
 module.exports = config
