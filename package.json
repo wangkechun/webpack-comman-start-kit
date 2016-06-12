@@ -45,6 +45,21 @@
     "test": "ava",
     "testwatch": "ava --watch"
   },
+  "babel": {
+    "plugins": [
+      "transform-async-to-generator"
+    ],
+    "presets": [
+      "es2015",
+      "stage-1",
+      "react"
+    ],
+    "env": {
+      "development": {
+        "sourceMaps": "inline"
+      }
+    }
+  },
   "ava": {
     "babel": "inherit",
     "source": [

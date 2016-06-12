@@ -21,9 +21,9 @@ var plugins = [
   })
 ]
 var entry = {
-  'hello/app': './hello/index.js',
-  // 'hello-redux/app': './hello-redux/index.jsx',
-  // 'word/app': './word/index.jsx',
+  'hello/app': './hello/index.jsx',
+  'hello-redux/app': './hello-redux/index.jsx',
+  'word/app': './word/index.jsx',
 }
 
 var filename = null
@@ -72,6 +72,7 @@ var config = {
       include: [
         path.resolve(__dirname, '../hello'), 
         path.resolve(__dirname, '../hello-redux'), 
+        path.resolve(__dirname, '../word'), 
       ],
       loaders: loaders
     }, {
@@ -95,12 +96,12 @@ var config = {
       if(COMMON_MODULES.hasOwnProperty(request)){
         callback(null, `COMMON_MODULES.require("${request}")`)
       }else{
-        console.log(`module not in COMMON_MODULES: ${request} ${context}`)
+        // console.log(`module not in COMMON_MODULES: ${request} ${context}`)
         callback()
       }
     }
   ]
 }
 
-console.log(JSON.stringify(config, null, '  '))
+// console.log(JSON.stringify(config, null, '  '))
 module.exports = config
