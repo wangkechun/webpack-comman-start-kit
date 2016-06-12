@@ -3,6 +3,7 @@ language: node_js
 node_js:
   - '5'
 script:
+- env
 - npm install
 - npm run build-common
 - npm run build
