@@ -1,8 +1,8 @@
 {
   "name": "app",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": " ",
-  "main": "server.js",
+  "main": "./tools/server.js",
   "devDependencies": {
     "ava": "^0.15.2",
     "babel-cli": "^6.10.1",
