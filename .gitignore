@@ -1,9 +1,7 @@
 node_modules
-page-redux
 build
 *.log
 *.min.js
 *.debug.js
 *.map
-
 .idea
