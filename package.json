@@ -37,11 +37,11 @@
   },
   "scripts": {
     "start": "node ./tools/server.js",
-    "release": "NODE_ENV=production webpack --config ./tools/webpack.config.js",
-    "build": "NODE_ENV=development webpack --config ./tools/webpack.config.js",
+    "release": "NODE_ENV=production webpack --config ./tools/webpack.config.js --bail",
+    "build": "NODE_ENV=development webpack --config ./tools/webpack.config.js --bail",
     "clear": "",
-    "build-common": "cd common && NODE_ENV=development webpack --config ./webpack.config.js",
-    "release-common": "cd common && NODE_ENV=production webpack --config ./webpack.config.js",
+    "build-common": "cd common && NODE_ENV=development webpack --config ./webpack.config.js --bail",
+    "release-common": "cd common && NODE_ENV=production webpack --config ./webpack.config.js --bail",
     "test": "ava",
     "testwatch": "ava --watch"
   },
@@ -64,6 +64,7 @@
     "babel": "inherit",
     "source": [
       "**/*.{js,jsx,jade}",
+      "!node_modules/**/*",
       "!build/**/*"
     ],
     "require": [
