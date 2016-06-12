@@ -68,12 +68,11 @@ var config = {
   },
   module: {
     loaders: [{
-      test: /\.js$/,
-      exclude: /build|lib|bower_components|node_modules/,
-      loaders: loaders
-    }, {
-      test: /\.jsx$/,
-      exclude: /build|lib|bower_components|node_modules/,
+      test: /\.jsx?$/,
+      include: [
+        path.resolve(__dirname, '../hello'), 
+        path.resolve(__dirname, '../hello-redux'), 
+      ],
       loaders: loaders
     }, {
       test: /\.less$/,
