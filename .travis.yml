@@ -1,0 +1,11 @@
+sudo: false
+language: node_js
+node_js:
+  - '5'
+script:
+- npm install
+- npm run build-common
+- npm run build
+- npm run test
+- npm run release-common
+- npm run release
