@@ -76,7 +76,7 @@ var config = {
       loaders: ['style', 'css?-url', 'less']
     }, {
       test: /\.jade$/,
-      loaders: ['react-jade']
+      loaders: ['wkc-react-jade']
     }],
     noParse: [
       path.join(__dirname, '..', 'node_modules', 'babel-core', 'browser.min.js'),
