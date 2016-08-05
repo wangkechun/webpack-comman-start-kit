@@ -1,3 +1,6 @@
+# webpack-comman-start-kit [![Build Status](https://travis-ci.org/wangkechun/webpack-comman-start-kit.svg?branch=master)](https://travis-ci.org/wangkechun/webpack-comman-start-kit)
+
+
 # 开始
 ```
 npm i 
