@@ -1,7 +1,7 @@
 import test from 'ava'
 import {If, IfElse, Root} from './Root'
 import React from 'react'
-import TestUtils from 'react/lib/ReactTestUtils'
+import TestUtils from 'react-addons-test-utils'
 import {render} from 'enzyme';
 
 var ReactDOMServer = require('react-dom/server');
